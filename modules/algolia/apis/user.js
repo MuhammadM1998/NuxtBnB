@@ -14,7 +14,7 @@ export default (algoliaConfig) => {
           await fetch(`${algoliaBooking}/`, {
             headers,
             method: "POST",
-            body: JSON.stringify(identityID, homeID, start, end),
+            body: JSON.stringify({ identityID, homeID, start, end }),
           })
         );
       } catch (error) {
