@@ -15,8 +15,14 @@ export default function () {
   });
 
   this.nuxt.hook("render:setupMiddleware", (app) => {
-    app.use("/hooks/stripe", (req, res, next) => {
+    app.use("/hooks/stripe", async (req, res, next) => {
       const meta = req.body.data.object.metadata;
+      await apis.user.bookHome(
+        meta.identityID,
+        meta.homeID,
+        meta.start,
+        meta.end
+      );
       res.end(`${meta.identityID} booked ${meta.homeID}!`);
     });
   });

@@ -4,9 +4,24 @@ import { getHeaders } from "../../helpers";
 
 export default (algoliaConfig) => {
   const algoliaUser = `https://${algoliaConfig.appID}-dsn.algolia.net/1/indexes/NuxtBnB_Users`;
+  const algoliaBooking = `https://${algoliaConfig.appID}-dsn.algolia.net/1/indexes/NuxtBnB_Bookings`;
   const headers = getHeaders(algoliaConfig);
 
   return {
+    bookHome: async (identityID, homeID, start, end) => {
+      try {
+        return unWrap(
+          await fetch(`${algoliaUser}/`, {
+            headers,
+            method: "POST",
+            body: JSON.stringify(identityID, homeID, start, end),
+          })
+        );
+      } catch (error) {
+        return getErrorResponse(error);
+      }
+    },
+
     assignHome: async function (identity, homeId) {
       const payload = (await this.getById(identity)).data;
       payload.homeId.push(homeId);
