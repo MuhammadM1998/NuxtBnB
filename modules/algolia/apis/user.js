@@ -11,7 +11,7 @@ export default (algoliaConfig) => {
     bookHome: async (identityID, homeID, start, end) => {
       try {
         return unWrap(
-          await fetch(`${algoliaUser}/`, {
+          await fetch(`${algoliaBooking}/`, {
             headers,
             method: "POST",
             body: JSON.stringify(identityID, homeID, start, end),
