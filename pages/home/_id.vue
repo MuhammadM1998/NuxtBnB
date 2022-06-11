@@ -51,13 +51,13 @@ export default {
       return JSON.stringify({
         "@context": "http://schema.org",
         "@type": "BedAndBreakfast",
-        "@name": this.home.title,
-        "@image": this.$img(
+        name: this.home.title,
+        image: this.$img(
           this.home.images[0],
           { width: 1200 },
           { provider: "cloudinary" }
         ),
-        "@address": {
+        address: {
           "@type": "PostalAddress",
           addressLocality: this.home.location.city,
           addressRegion: this.home.location.state,
