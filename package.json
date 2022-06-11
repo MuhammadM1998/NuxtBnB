@@ -1,0 +1,35 @@
+{
+  "name": "nuxt-bnb",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "heroku-postbuild": "yarn build"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
+    "@nuxtjs/cloudinary": "^1.0.3",
+    "@nuxtjs/firebase": "^8.2.2",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cookie": "^0.5.0",
+    "firebase": "^9.8.2",
+    "firebase-admin": "^10.2.0",
+    "firebaseui": "^6.0.1",
+    "js-cookie": "^3.0.1",
+    "mapbox-gl": "^2.8.2",
+    "nuxt": "^2.15.8",
+    "stripe": "^9.7.0",
+    "uuid": "^8.3.2",
+    "v-calendar": "^2.4.1"
+  },
+  "devDependencies": {
+    "@nuxt/image": "^0.6.2",
+    "@nuxtjs/tailwindcss": "^5.1.2",
+    "sass": "^1.52.1",
+    "sass-loader": "10.1.1"
+  }
+}
