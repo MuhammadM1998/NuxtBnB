@@ -1,6 +1,6 @@
 module.exports = {
   rootUrl:
-    process.env.NODE_ENV === " production"
+    process.env.NODE_ENV === "production"
       ? "https://nuxtbnb-m98.herokuapp.com"
       : "http://localhost:3000",
   head: {
