@@ -43,7 +43,7 @@ export default function () {
     const home = (await apis.homes.get(body.homeID)).data;
     const nights = (body.end - body.start) / 86400;
     const session = await stripe.checkout.sessions.create({
-      matadata: {
+      metadata: {
         identityID: req.identity.id,
         homeID: body.homeID,
         start: body.start,
