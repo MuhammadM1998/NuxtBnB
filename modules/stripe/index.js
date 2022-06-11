@@ -10,6 +10,8 @@ export default function () {
   const cloudName = this.options.cloudinary.cloudName;
   const rootUrl = this.options.rootUrl;
 
+  console.log("Root URL =", rootUrl);
+
   this.nuxt.hook("render:setupMiddleware", (app) => {
     app.use("/api/stripe/create-session", createSession);
   });
