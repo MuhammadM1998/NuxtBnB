@@ -25,7 +25,7 @@ export default {
         {
           hid: "og-image",
           property: "og:image",
-          content: this.$image(
+          content: this.$img(
             this.home.images[0],
             { width: 1200 },
             { provider: "cloudinary" }
