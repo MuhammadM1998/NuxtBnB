@@ -10,10 +10,15 @@ export default function () {
   const cloudName = this.options.cloudinary.cloudName;
   const rootUrl = this.options.rootUrl;
 
-  console.log("Root URL =", rootUrl);
-
   this.nuxt.hook("render:setupMiddleware", (app) => {
     app.use("/api/stripe/create-session", createSession);
+  });
+
+  this.nuxt.hook("render:setupMiddleware", (app) => {
+    app.use("/hooks/stripe", (req, res, next) => {
+      const meta = req.body.data.object.metadata;
+      res.end(`${meta.identityID} booked ${meta.homeID}!`);
+    });
   });
 
   async function createSession(req, res) {
@@ -32,6 +37,12 @@ export default function () {
     const home = (await apis.homes.get(body.homeID)).data;
     const nights = (body.end - body.start) / 86400;
     const session = await stripe.checkout.sessions.create({
+      matadata: {
+        identityID: req.identity.id,
+        homeID: body.homeID,
+        start: body.start,
+        end: body.end,
+      },
       payment_method_types: ["card"],
       mode: "payment",
       success_url: `${rootUrl}/home/${body.homeID}?result=sucess`,
