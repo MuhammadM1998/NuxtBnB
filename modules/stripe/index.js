@@ -8,6 +8,7 @@ export default function () {
   const secretKey = this.options.privateRuntimeConfig.stripe.secretKey;
   const stripe = stripeLib(secretKey);
   const cloudName = this.options.cloudinary.cloudName;
+  const rootUrl = this.options.rootUrl;
 
   this.nuxt.hook("render:setupMiddleware", (app) => {
     app.use("/api/stripe/create-session", createSession);
@@ -31,8 +32,8 @@ export default function () {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
-      success_url: `http://localhost:3000/home/${body.homeID}?result=sucess`,
-      cancel_url: `http://localhost:3000/home/${body.homeID}`,
+      success_url: `${rootUrl}/home/${body.homeID}?result=sucess`,
+      cancel_url: `${rootUrl}/home/${body.homeID}`,
       line_items: [
         {
           quantity: 1,
