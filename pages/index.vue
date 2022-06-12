@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <div
+  <div class="user-homes-cards">
+    <HomeCard
       v-for="home in homes"
       :key="home.objectID"
-      style="float: left; margin: 10px"
-    >
-      <NuxtLink :to="`/home/${home.objectID}`">
-        <HomeCard :home="home"></HomeCard>
-      </NuxtLink>
-    </div>
+      :home="home"
+    ></HomeCard>
   </div>
 </template>
 

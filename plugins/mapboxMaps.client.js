@@ -4,16 +4,16 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 export default function (context, inject) {
-  inject("mapboxMaps", { createMap });
+  inject("mapboxMaps", { createMap, createGeocoder });
 
-  function createMap(coords, markers) {
-    // Mapbox Access Token
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoibXVoYW1tYWRtMTk5OCIsImEiOiJjbDNmeWhiNXIwcXM1M2JucjVwMDJ6d2k5In0.5cYoPsAgo_YmkK_HVh4KPg";
+  // Mapbox Access Token
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoibXVoYW1tYWRtMTk5OCIsImEiOiJjbDNmeWhiNXIwcXM1M2JucjVwMDJ6d2k5In0.5cYoPsAgo_YmkK_HVh4KPg";
 
+  function createMap(mapContainerID, coords, markers) {
     // Creating a new map instance
     const map = new mapboxgl.Map({
-      container: "mapboxMap", // container ID
+      container: mapContainerID,
       style: "mapbox://styles/mapbox/streets-v11", // style URL
       center: coords, // starting position [lng, lat]
       zoom: 15, // starting zoom
@@ -21,30 +21,8 @@ export default function (context, inject) {
       attributionControl: false, // Hides the attribution text
       cooperativeGestures: true, // Forces using Ctrl + Scroll to zoom
     });
-    addGeocodeSearch();
-    addMarkers();
+    addMarkers(coords, markers);
     addExtraControls();
-
-    // Add Geocode Serach using the mapbox-gl-geocoder
-    function addGeocodeSearch() {
-      const geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        enableEventLogging: false,
-        mapboxgl: mapboxgl,
-      });
-
-      // Only add the search box if there's none (avoid duplications of boxes)
-      const geocoderContainer = document.getElementById("geocoder");
-      if (!document.querySelector(".mapboxgl-ctrl-geocoder"))
-        geocoderContainer.appendChild(geocoder.onAdd(map));
-
-      // Emit an Event when a result is found
-      geocoder.on("result", function (data) {
-        const result = data.result;
-        const resultFound = new CustomEvent("resultFound", { detail: result });
-        geocoderContainer.dispatchEvent(resultFound);
-      });
-    }
 
     // Add Zoom, Rotation and Full Screen controls
     function addExtraControls() {
@@ -56,7 +34,7 @@ export default function (context, inject) {
     }
 
     // Add Markers
-    function addMarkers() {
+    function addMarkers(coords, markers) {
       if (!markers) {
         // Create a default Marker and add it to the map.
         const defaultMarker = new mapboxgl.Marker().setLngLat(coords);
@@ -113,5 +91,26 @@ export default function (context, inject) {
         });
       }
     }
+  }
+
+  function createGeocoder(containerID) {
+    // Only add the search box if there's none (avoid duplications of boxes)
+    const geocoderContainer = document.getElementById(containerID);
+    if (geocoderContainer.querySelector(".mapboxgl-ctrl-geocoder")) return;
+
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      enableEventLogging: false,
+      mapboxgl: mapboxgl,
+    });
+
+    geocoder.addTo(geocoderContainer);
+
+    // Emit an Event when a result is found
+    geocoder.on("result", function (data) {
+      const result = data.result;
+      const resultFound = new CustomEvent("resultFound", { detail: result });
+      geocoderContainer.dispatchEvent(resultFound);
+    });
   }
 }

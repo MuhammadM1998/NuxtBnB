@@ -20,6 +20,7 @@ module.exports = {
   privateRuntimeConfig: {},
   build: { extractCSS: true, loaders: { limit: 0 } },
   buildModules: ["@nuxtjs/tailwindcss"],
+
   plugins: [
     `~/plugins/dataAPI`,
     `~/plugins/firebaseAuth.client`,
@@ -41,33 +42,33 @@ module.exports = {
   publicRuntimeConfig: {
     rootUrl:
       process.env.NODE_ENV === "production"
-        ? "https://nuxtbnb-m98.herokuapp.com"
-        : "http://localhost:3000",
+        ? process.env.BASE_URL
+        : process.env.LOCAL_HOST_URL,
 
-    auth: { cookieName: "idToken" },
+    auth: { cookieName: process.env.AUTH_COOKIE_NAME },
 
     algolia: {
-      appID: "ZIN5OIC3G9",
-      apiKey: "8d99e75a58d41c21f2751df0200f251a",
+      appID: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_PUBLIC_API_KEY,
     },
 
     cloudinary: {
-      apiKey: "649975279141177",
+      apiKey: process.env.CLOUDINARY_PUBLIC_API_KEY,
     },
 
     stripe: {
-      key: "pk_test_51L8kymLBFR6Mak5RxP6Z44entBPx9l9RFKUpmcTz6uz9MAXvOabEdq2MocroyyrCXt3pskUaR2Y7yEfEQHK2yas900zKOjRshB",
+      key: process.env.STRIPE_PUBLIC_KEY,
     },
   },
 
   privateRuntimeConfig: {
     algolia: {
-      appID: "ZIN5OIC3G9",
-      apiKey: "471bd6696e99e89807f616904fa16d7c",
+      appID: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_SECRET_API_KEY,
     },
 
     cloudinary: {
-      apiSecret: "RfouEbA0V-bPJrLnubjRir1zzb4",
+      apiSecret: process.env.CLOUDINARY_SECRET_API_KEY,
     },
 
     stripe: {
@@ -77,13 +78,14 @@ module.exports = {
 
   firebase: {
     config: {
-      apiKey: "AIzaSyBndHw7o0nzijrn_PdnvDIgLT2AyQPP5xc",
-      authDomain: "nuxtbnb-m98.firebaseapp.com",
-      projectId: "nuxtbnb-m98",
-      storageBucket: "nuxtbnb-m98.appspot.com",
-      messagingSenderId: "285262880581",
-      appId: "1:285262880581:web:d2a4ce58994867ed22a82c",
+      apiKey: process.env.FIREBASE_API_KEY,
+      authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      storageBucket: process.env.FIREBASE_SOTRAGE_BUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+      appId: process.env.FIREBASE_APP_ID,
     },
+
     services: {
       auth: {
         persistence: "local",
@@ -97,12 +99,12 @@ module.exports = {
   },
 
   cloudinary: {
-    cloudName: "cloud-m98",
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
   },
 
   image: {
     cloudinary: {
-      baseURL: "https://res.cloudinary.com/cloud-m98/image/upload/",
+      baseURL: process.env.CLOUDINARY_BASE_URL,
     },
   },
 };

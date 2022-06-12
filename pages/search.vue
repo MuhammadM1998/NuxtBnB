@@ -82,7 +82,11 @@ export default {
 
   methods: {
     createMap() {
-      this.$mapboxMaps.createMap(this.coords, this.getHomeMarkers());
+      this.$mapboxMaps.createMap(
+        "mapboxMap",
+        this.coords,
+        this.getHomeMarkers()
+      );
     },
 
     getHomeMarkers() {

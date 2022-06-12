@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <input type="file" accept=".jpeg,.gpj,image/jpeg" @change="uploadFile" />
+  <div class="flex">
+    <input
+      type="file"
+      id="file"
+      accept="image/*"
+      aria-label="Home Image Uploader"
+      @change="uploadFile"
+    />
   </div>
 </template>
 

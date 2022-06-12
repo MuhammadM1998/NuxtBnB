@@ -29,7 +29,7 @@ export default {
   },
 
   mounted() {
-    this.$mapboxMaps.createMap(this.coords);
+    this.$mapboxMaps.createMap("mapboxMap", this.coords);
   },
 };
 </script>

@@ -66,7 +66,15 @@ export default (algoliaConfig) => {
             method: "POST",
             body: JSON.stringify({
               filters: `userId:${userId}`,
-              attributesToRetrieve: ["objectID", "title"],
+              attributesToRetrieve: [
+                "objectID",
+                "title",
+                "reviewCount",
+                "pricePerNight",
+                "guests",
+                "location",
+                "images",
+              ],
               attributesToHighlight: [],
             }),
           })

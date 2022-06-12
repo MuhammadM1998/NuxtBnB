@@ -10,7 +10,7 @@
 
       <!-- Search -->
       <div class="app-search">
-        <div id="geocoder" @resultFound="resultFound"></div>
+        <MapboxGeocoder containerID="search" @resultFound="resultFound" />
 
         <client-only>
           <template #placeholder>
@@ -67,6 +67,7 @@ export default {
       },
     };
   },
+
   methods: {
     search() {
       if (!this.location.label) return;
