@@ -1,5 +1,7 @@
 module.exports = {
   theme: {
+    content: ["./node_modules/flowbite/**/*.js"],
+
     container: {
       center: true,
       padding: {
@@ -19,7 +21,7 @@ module.exports = {
           400: "#3E5786",
           600: "#1e394f",
         },
-        
+
         lynch: "#71809d",
         zumthor: "#E3ECFF",
         "dusty-gray": "#979797",
@@ -49,4 +51,6 @@ module.exports = {
       },
     },
   },
+
+  plugins: [require("flowbite/plugin")],
 };

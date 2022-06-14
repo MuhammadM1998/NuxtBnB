@@ -1,15 +1,7 @@
-<template>
-  <MapboxGeocoder @resultFound="searchResultFound" />
-</template>
+<template></template>
 
 <script>
-export default {
-  methods: {
-    searchResultFound(e) {
-      console.log(e.detail);
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped></style>

@@ -13,7 +13,7 @@ module.exports = {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   components: true,
-  css: ["~/assets/sass/app.scss"],
+  css: ["~/assets/styles/main.scss"],
   router: { prefetchLinks: false },
   devServerHandlers: [],
   publicRuntimeConfig: {},
@@ -23,7 +23,6 @@ module.exports = {
 
   plugins: [
     `~/plugins/dataAPI`,
-    `~/plugins/firebaseAuth.client`,
     `~/plugins/mapboxMaps.client`,
     `~/plugins/stripe.client`,
     `~/plugins/vCalendar.client`,

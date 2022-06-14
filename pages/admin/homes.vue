@@ -1,6 +1,5 @@
 <template>
-  <!-- User Homes Wrapper -->
-  <div class="bg-primary-100 app-padded-vertical">
+  <section class="bg-primary-100 app-padded-vertical">
     <div class="container">
       <h1 class="app-title">Your Homes</h1>
 
@@ -13,7 +12,7 @@
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

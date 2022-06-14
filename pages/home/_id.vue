@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <section class="app-container">
     <PropertyGallery :images="home.images" />
     <PropertyDetails :home="home" />
     <PropertyDescription :home="home" />
@@ -7,7 +7,7 @@
     <PropertyReviews :reviews="reviews" />
     <PropertyHost :user="user" />
     <script type="application/ld+json" v-html="getSchema"></script>
-  </div>
+  </section>
 </template>
 
 <script>

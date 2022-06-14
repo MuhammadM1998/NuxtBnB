@@ -97,11 +97,7 @@ export default {
           id: home.objectID,
         };
       });
-      console.log(
-        "Homes & Markers from getHomeMarkers method",
-        this.homes,
-        markers
-      );
+
       return markers;
     },
 

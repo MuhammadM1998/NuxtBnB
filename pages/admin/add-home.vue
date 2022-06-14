@@ -1,239 +1,280 @@
 <template>
-  <div>
-    <div class="bg-primary-100 app-padded-vertical">
-      <div class="container">
-        <h1 class="app-title">Add a New Home</h1>
+  <section class="bg-primary-100 app-padded-vertical">
+    <div class="container">
+      <h1 class="app-title">Add a New Home</h1>
 
-        <form class="form" @submit.prevent="onSubmit">
-          <!-- Home Title -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Home Title</p>
-            <input type="text" v-model="home.title" class="md:max-w-xs" />
-          </div>
+      <form class="form" @submit.prevent="onSubmit">
+        <!-- Home Title -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Home Title</p>
+          <input
+            required
+            type="text"
+            v-model="home.title"
+            class="md:max-w-xs"
+          />
+        </div>
 
-          <!-- Images -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Images</p>
+        <!-- Images -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Images</p>
 
-            <ImageUploader @imageUploaded="imageUpdated($event, 0)" />
-            <ImageUploader @imageUploaded="imageUpdated($event, 1)" />
-            <ImageUploader @imageUploaded="imageUpdated($event, 2)" />
-            <ImageUploader @imageUploaded="imageUpdated($event, 3)" />
-            <ImageUploader @imageUploaded="imageUpdated($event, 4)" />
-          </div>
+          <ImageUploader @imageUploaded="imageUpdated($event, 0)" />
+          <ImageUploader @imageUploaded="imageUpdated($event, 1)" />
+          <ImageUploader @imageUploaded="imageUpdated($event, 2)" />
+          <ImageUploader @imageUploaded="imageUpdated($event, 3)" />
+          <ImageUploader @imageUploaded="imageUpdated($event, 4)" />
+        </div>
 
-          <!-- Description -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Description</p>
-            <input type="text" v-model="home.description" />
-          </div>
+        <!-- Description -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Description</p>
+          <input required type="text" v-model="home.description" />
+        </div>
 
-          <!-- Note -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Notes</p>
-            <input type="text" v-model="home.note" />
-          </div>
+        <!-- Note -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Notes</p>
+          <input required type="text" v-model="home.note" />
+        </div>
 
-          <!-- Features -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Features</p>
+        <!-- Features -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Features</p>
 
-            <input type="text" v-model="home.features[0]" class="md:max-w-xs" />
-            <input type="text" v-model="home.features[1]" class="md:max-w-xs" />
-            <input type="text" v-model="home.features[2]" class="md:max-w-xs" />
-            <input type="text" v-model="home.features[3]" class="md:max-w-xs" />
-            <input type="text" v-model="home.features[4]" class="md:max-w-xs" />
-          </div>
+          <input
+            required
+            type="text"
+            v-model="home.features[0]"
+            class="md:max-w-xs"
+          />
+          <input
+            required
+            type="text"
+            v-model="home.features[1]"
+            class="md:max-w-xs"
+          />
+          <input
+            required
+            type="text"
+            v-model="home.features[2]"
+            class="md:max-w-xs"
+          />
+          <input
+            required
+            type="text"
+            v-model="home.features[3]"
+            class="md:max-w-xs"
+          />
+          <input
+            required
+            type="text"
+            v-model="home.features[4]"
+            class="md:max-w-xs"
+          />
+        </div>
 
-          <!-- Price Per Night -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Price Per Night</p>
+        <!-- Price Per Night -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Price Per Night</p>
+          <input
+            required
+            class="md:max-w-xs"
+            type="number"
+            min="0"
+            v-model="home.pricePerNight"
+          />
+        </div>
+
+        <!-- House Specs -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">House Specs</p>
+
+          <div class="flex flex-col gap-2 md:flex-row">
             <input
-              class="md:max-w-xs"
+              required
               type="number"
               min="0"
-              v-model="home.pricePerNight"
+              v-model="home.guests"
+              placeholder="Guests"
+              class="md:max-w-xs"
+            />
+
+            <input
+              required
+              type="number"
+              min="0"
+              v-model="home.bedrooms"
+              placeholder="Rooms"
+              class="md:max-w-xs"
+            />
+
+            <input
+              required
+              type="number"
+              min="0"
+              v-model="home.beds"
+              placeholder="Beds"
+              class="md:max-w-xs"
+            />
+
+            <input
+              required
+              type="number"
+              min="0"
+              v-model="home.bathrooms"
+              placeholder="Bathrooms"
+              class="md:max-w-xs"
             />
           </div>
+        </div>
 
-          <!-- House Specs -->
+        <!-- Location -->
+        <div class="flex flex-col gap-2">
+          <p class="form-title">Location</p>
+
+          <!-- Address -->
           <div class="flex flex-col gap-2">
-            <p class="form-title">House Specs</p>
+            <label for="address"
+              >Type your home address and we'll try to fill it's info</label
+            >
 
-            <div class="flex flex-col gap-2 md:flex-row">
-              <input
-                type="number"
-                min="0"
-                v-model="home.guests"
-                placeholder="Guests"
-                class="md:max-w-xs"
-              />
+            <MapboxGeocoder
+              containerID="home-location"
+              @resultFound="setAddressInfo"
+            />
 
-              <input
-                type="number"
-                min="0"
-                v-model="home.bedrooms"
-                placeholder="Rooms"
-                class="md:max-w-xs"
-              />
-
-              <input
-                type="number"
-                min="0"
-                v-model="home.beds"
-                placeholder="Beds"
-                class="md:max-w-xs"
-              />
-
-              <input
-                type="number"
-                min="0"
-                v-model="home.bathrooms"
-                placeholder="Bathrooms"
-                class="md:max-w-xs"
-              />
-            </div>
-          </div>
-
-          <!-- Location -->
-          <div class="flex flex-col gap-2">
-            <p class="form-title">Location</p>
-
-            <!-- Address -->
-            <div class="flex flex-col gap-2">
-              <label for="address"
-                >Type your home address and we'll try to fill it's info</label
-              >
-
-              <MapboxGeocoder
-                containerID="home-location"
-                @resultFound="setAddressInfo"
-              />
-
-              <!-- <div
+            <!-- <div
                 id="mapbox-geocoder-home-location"
                 @resultFound="setAddressInfo"
               ></div> -->
-            </div>
-
-            <!-- Country -->
-            <div class="flex flex-col gap-2">
-              <label for="country">Country</label>
-              <input
-                type="text"
-                name="country"
-                v-model="home.location.country"
-                class="md:max-w-xs"
-              />
-            </div>
-
-            <!-- City -->
-            <div class="flex flex-col gap-2">
-              <label for="city">City</label>
-              <input
-                type="text"
-                name="city"
-                v-model="home.location.city"
-                class="md:max-w-xs"
-              />
-            </div>
-
-            <!-- State -->
-            <div class="flex flex-col gap-2">
-              <label for="state">State</label>
-              <input
-                type="text"
-                name="state"
-                v-model="home.location.state"
-                class="md:max-w-xs"
-              />
-            </div>
-
-            <!-- Postal Code -->
-            <div class="flex flex-col gap-2">
-              <label for="postal-code">Postal Code</label>
-              <input
-                type="text"
-                name="postal-code"
-                v-model="home.location.postalCode"
-                class="md:max-w-xs"
-              />
-            </div>
           </div>
 
-          <!-- Availability Range -->
-          <div>
-            <p class="form-title">Availability Range</p>
+          <!-- Country -->
+          <div class="flex flex-col gap-2">
+            <label for="country">Country</label>
+            <input
+              required
+              type="text"
+              name="country"
+              v-model="home.location.country"
+              class="md:max-w-xs"
+            />
           </div>
 
-          <!-- Check in Date -->
-          <DatePicker
-            v-model="home.availabilityRanges[0]"
-            is-range
-            timezone="UTC"
-            :modelConfig="{ timeAdjust: '00:00:00' }"
-          >
-            <template v-slot="{ inputValue, inputEvents }">
-              <div>
-                <p>Check in</p>
+          <!-- City -->
+          <div class="flex flex-col gap-2">
+            <label for="city">City</label>
+            <input
+              required
+              type="text"
+              name="city"
+              v-model="home.location.city"
+              class="md:max-w-xs"
+            />
+          </div>
 
-                <div class="flex items-center gap-2 mt-2">
-                  <input
-                    :value="inputValue.start"
-                    v-on="inputEvents.start"
-                    class="max-w-[45%] md:max-w-xs"
-                  />
+          <!-- State -->
+          <div class="flex flex-col gap-2">
+            <label for="state">State</label>
+            <input
+              required
+              type="text"
+              name="state"
+              v-model="home.location.state"
+              class="md:max-w-xs"
+            />
+          </div>
 
-                  <p>to</p>
+          <!-- Postal Code -->
+          <div class="flex flex-col gap-2">
+            <label for="postal-code">Postal Code</label>
+            <input
+              required
+              type="text"
+              name="postal-code"
+              v-model="home.location.postalCode"
+              class="md:max-w-xs"
+            />
+          </div>
+        </div>
 
-                  <input
-                    :value="inputValue.end"
-                    v-on="inputEvents.end"
-                    class="max-w-[45%] md:max-w-xs"
-                  />
-                </div>
+        <!-- Availability Range -->
+        <div>
+          <p class="form-title">Availability Range</p>
+        </div>
+
+        <!-- Check in Date -->
+        <DatePicker
+          v-model="home.availabilityRanges[0]"
+          is-range
+          timezone="UTC"
+          :modelConfig="{ timeAdjust: '00:00:00' }"
+        >
+          <template v-slot="{ inputValue, inputEvents }">
+            <div>
+              <p>Check in</p>
+
+              <div class="flex items-center gap-2 mt-2">
+                <input
+                  required
+                  :value="inputValue.start"
+                  v-on="inputEvents.start"
+                  class="max-w-[45%] md:max-w-xs"
+                />
+
+                <p>to</p>
+
+                <input
+                  required
+                  :value="inputValue.end"
+                  v-on="inputEvents.end"
+                  class="max-w-[45%] md:max-w-xs"
+                />
               </div>
-            </template>
-          </DatePicker>
+            </div>
+          </template>
+        </DatePicker>
 
-          <!-- Check out Date -->
-          <DatePicker
-            v-model="home.availabilityRanges[1]"
-            is-range
-            timezone="UTC"
-            :modelConfig="{ timeAdjust: '00:00:00' }"
-          >
-            <template v-slot="{ inputValue, inputEvents }">
-              <div>
-                <p>Check Out</p>
+        <!-- Check out Date -->
+        <DatePicker
+          v-model="home.availabilityRanges[1]"
+          is-range
+          timezone="UTC"
+          :modelConfig="{ timeAdjust: '00:00:00' }"
+        >
+          <template v-slot="{ inputValue, inputEvents }">
+            <div>
+              <p>Check Out</p>
 
-                <div class="flex items-center gap-2 mt-2">
-                  <input
-                    :value="inputValue.start"
-                    v-on="inputEvents.start"
-                    class="max-w-[45%] md:max-w-xs"
-                  />
+              <div class="flex items-center gap-2 mt-2">
+                <input
+                  required
+                  :value="inputValue.start"
+                  v-on="inputEvents.start"
+                  class="max-w-[45%] md:max-w-xs"
+                />
 
-                  <p>to</p>
+                <p>to</p>
 
-                  <input
-                    :value="inputValue.end"
-                    v-on="inputEvents.end"
-                    class="max-w-[45%] md:max-w-xs"
-                  />
-                </div>
+                <input
+                  required
+                  :value="inputValue.end"
+                  v-on="inputEvents.end"
+                  class="max-w-[45%] md:max-w-xs"
+                />
               </div>
-            </template>
-          </DatePicker>
+            </div>
+          </template>
+        </DatePicker>
 
-          <!-- Add Home to Database -->
-          <div class="home-add">
-            <button type="submit">Add Home</button>
-          </div>
-        </form>
-      </div>
+        <!-- Add Home to Database -->
+        <div class="home-add">
+          <button type="submit">Add Home</button>
+        </div>
+      </form>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

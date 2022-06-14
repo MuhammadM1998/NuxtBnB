@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply font-cereal;
+  }
+
+  $cities: paris, new-york, london, dubai, san-francisco, cancun;
+  @each $city in $cities {
+    .city-#{$city} {
+      background-image: url(~/assets/images/photos/#{$city}.jpg);
+    }
+  }
+
+  .app {
+    &-title {
+      @apply text-primary-400 text-4xl font-bold;
+    }
+
+    &-input {
+      @apply border-2 border-link-water rounded-lg text-lg py-3 px-2;
+    }
+
+    &-button {
+      @apply p-4 text-lg border-2 rounded-lg bg-primary-200 hover:bg-blue-600;
+    }
+  }
+
+  /* Fonts (Always keep it at the end of the stylesheet) */
+  @font-face {
+    font-family: "Cereal";
+    src: url("../fonts/Cereal-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Cereal";
+    src: url("../fonts/Cereal-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Cereal";
+    src: url("../fonts/Cereal-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Cereal";
+    src: url("../fonts/Cereal-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Cereal";
+    src: url("../fonts/Cereal-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+  }
+}
