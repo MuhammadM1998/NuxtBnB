@@ -3,11 +3,13 @@
     <div class="container flex flex-col gap-8">
       <h1 class="app-title">Welcome back, {{ userFirstName }}</h1>
 
-      <div class="flex flex-col justify-center gap-4 md:flex-row">
+      <div
+        class="flex flex-col items-center justify-center gap-4 md:flex-row lg:items-stretch"
+      >
         <!-- Go to Homes -->
         <NuxtLink to="/admin/homes">
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md"
+            class="h-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md"
           >
             <img
               class="object-cover object-center w-full rounded-t-lg max-h-72"
@@ -32,7 +34,7 @@
         <!-- Go to Add Home -->
         <NuxtLink to="/admin/add-home">
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md"
+            class="h-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md"
           >
             <img
               class="object-cover object-center w-full rounded-t-lg max-h-72"
