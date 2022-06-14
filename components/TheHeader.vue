@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="fixed w-full py-2.5 px-2 sm:px-4 bg-white lg:static shadow lg:shadow-none"
-  >
+  <header class="fixed w-full py-2.5 px-2 sm:px-4 bg-white lg:static shadow">
     <div class="flex items-center gap-6">
       <!-- Header logo -->
       <div>

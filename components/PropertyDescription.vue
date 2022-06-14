@@ -1,24 +1,26 @@
 <template>
-  <section class="container rounded-lg app-section bg-primary-100">
-    <div class="flex flex-col gap-8 lg:gap-0 lg:flex-row lg:justify-between">
-      <!-- Description -->
-      <div class="property-description">
-        <h1 class="app-title">Description</h1>
-        <p class="text-gray-600">{{ home.description }}</p>
-      </div>
+  <section class="pt-0 app-section">
+    <div class="container rounded-lg app-section bg-primary-100">
+      <div class="flex flex-col gap-8 lg:gap-0 lg:flex-row lg:justify-between">
+        <!-- Description -->
+        <div class="property-description">
+          <h1 class="app-title">Description</h1>
+          <p class="text-gray-600">{{ home.description }}</p>
+        </div>
 
-      <!-- Features  -->
-      <div class="property-features">
-        <h1 class="app-title">Features</h1>
+        <!-- Features  -->
+        <div class="property-features">
+          <h1 class="app-title">Features</h1>
 
-        <div class="flex flex-wrap gap-2">
-          <p
-            v-for="(feature, index) in home.features"
-            :key="index"
-            class="feature-tag"
-          >
-            {{ feature }}
-          </p>
+          <div class="flex flex-wrap gap-2">
+            <p
+              v-for="(feature, index) in home.features"
+              :key="index"
+              class="feature-tag"
+            >
+              {{ feature }}
+            </p>
+          </div>
         </div>
       </div>
     </div>

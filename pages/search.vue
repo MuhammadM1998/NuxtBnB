@@ -1,8 +1,12 @@
 <template>
-  <div class="app-search-results-page">
-    <div class="app-search-results">
-      <div class="app-search-results-listing">
+  <section>
+    <div class="flex flex-col lg:flex-row">
+      <div class="container app-section lg:basis-full">
         <h2 class="app-title">Stays in {{ label }}</h2>
+
+        <p class="mt-4 text-gray-600" v-if="homes.length === 0">
+          There's no available homes in this area. Try a different location
+        </p>
 
         <nuxt-link
           v-for="home in homes"
@@ -17,11 +21,12 @@
         </nuxt-link>
       </div>
 
-      <div class="app-search-results-map">
-        <div id="mapboxMap" class="app-map"></div>
-      </div>
+      <div
+        id="mapbox-search-map"
+        class="h-[50vh] lg:basis-full lg:h-screen"
+      ></div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -29,6 +34,15 @@ export default {
   head() {
     return {
       title: `Homes around ${this.label}`,
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: `Search results for homes around ${this.label}. Find the best place for you to rent now on NuxtBnB.`,
+        },
+      ],
     };
   },
 
@@ -83,7 +97,7 @@ export default {
   methods: {
     createMap() {
       this.$mapboxMaps.createMap(
-        "mapboxMap",
+        "mapbox-search-map",
         this.coords,
         this.getHomeMarkers()
       );

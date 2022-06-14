@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <div id="mapboxMap" class="h-[50vh] lg:h-[75vh]"></div>
+    <div id="mapbox-property-map" class="h-[50vh] lg:h-[75vh]"></div>
   </section>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   },
 
   mounted() {
-    this.$mapboxMaps.createMap("mapboxMap", this.coords);
+    this.$mapboxMaps.createMap("mapbox-property-map", this.coords);
   },
 };
 </script>

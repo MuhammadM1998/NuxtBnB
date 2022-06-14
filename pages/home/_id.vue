@@ -1,5 +1,5 @@
 <template>
-  <section class="app-container">
+  <section>
     <PropertyGallery :images="home.images" />
     <PropertyDetails :home="home" />
     <PropertyDescription :home="home" />
@@ -15,7 +15,15 @@ export default {
   head() {
     return {
       title: this.home.title,
+
       meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: `${this.home.title} Home Page. An Airbnb-like Website for renting houses to others. Built with Nuxt.js, Algolia, Mapbox, Firebase and more.`,
+        },
         { hid: "og-type", property: "og:type", content: "website" },
         { hid: "og-title", property: "og:title", content: this.home.title },
         {

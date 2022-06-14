@@ -95,7 +95,7 @@ export default {
 
 <style lang="scss">
 div[id^="mapbox-geocoder"] {
-  @apply border-2 border-link-water rounded-lg text-lg p-2 pr-0;
+  @apply border-2 border-primary-300 border-opacity-80 rounded-lg text-lg p-2 pr-0;
 
   &:focus-within {
     outline: auto;
@@ -109,6 +109,7 @@ div[id^="mapbox-geocoder"] {
 
       &:focus {
         border: none;
+        outline: none;
         box-shadow: none;
       }
     }

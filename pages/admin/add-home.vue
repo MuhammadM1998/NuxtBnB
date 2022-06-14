@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-primary-100 app-padded-vertical">
+  <section class="bg-primary-100 app-section">
     <div class="container">
       <h1 class="app-title">Add a New Home</h1>
 
@@ -282,6 +282,21 @@ import { unWrap } from "~/utils/fetchUtils";
 import Cookie from "js-cookie";
 
 export default {
+  head() {
+    return {
+      title: `Add Home`,
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: `NuxtBnB User Add Home Page. An Airbnb-like Website for renting houses to others. Built with Nuxt.js, Algolia, Mapbox, Firebase and more.`,
+        },
+      ],
+    };
+  },
+
   data() {
     return {
       home: {
@@ -346,7 +361,7 @@ export default {
 
   asyncData({ $config, redirect }) {
     if (!Cookie.get($config.auth.cookieName)) {
-      redirect("/no-access");
+      redirect("/access-denied");
       return;
     }
   },

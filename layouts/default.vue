@@ -2,6 +2,8 @@
   <div class="app">
     <TheHeader />
 
-    <nuxt class="pt-16 pb-12 lg:pt-0" />
+    <div id="wrapper" class="pt-16 lg:pt-0">
+      <nuxt />
+    </div>
   </div>
 </template>

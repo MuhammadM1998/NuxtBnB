@@ -3,6 +3,10 @@
     <div class="container">
       <h1 class="mb-4 app-title">Clients Reviews</h1>
 
+      <p class="mt-4 text-gray-600" v-if="reviews.length === 0">
+        This house has no reviews yet.
+      </p>
+
       <div class="property-reviews">
         <div v-for="(review, index) in reviews" :key="index">
           <div class="flex items-center gap-4">
