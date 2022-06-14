@@ -13,10 +13,10 @@
       <div class="home-info">
         <h4 class="home-title">{{ home.title }}</h4>
 
-        <!-- Home City -->
+        <!-- Home Address -->
         <div class="flex items-center gap-2">
           <SVGMarker class="svg" />
-          <p>{{ home.location.city }}</p>
+          <p>{{ home.location.address }}</p>
         </div>
 
         <!-- Home Price Per Night -->

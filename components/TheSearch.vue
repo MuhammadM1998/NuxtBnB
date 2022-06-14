@@ -4,10 +4,11 @@
 
     <client-only>
       <template #placeholder>
-        <input class="datepicker app-input" />
-        <span class="font-medium text-center">to</span>
-        <input class="datepicker app-input" />
-        <br />
+        <div class="flex flex-col gap-2 lg:flex-row lg:items-center">
+          <input class="datepicker app-input" />
+          <span class="font-medium text-center">to</span>
+          <input class="datepicker app-input" />
+        </div>
       </template>
 
       <DatePicker

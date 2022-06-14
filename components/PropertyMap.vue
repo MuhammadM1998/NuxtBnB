@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <div class="app-wrapper app-padded-vertical">
-      <h2 class="app-subtitle">Location</h2>
+  <section class="flex flex-col gap-4 app-section">
+    <div class="container">
+      <div class="flex flex-col gap-2">
+        <h1 class="app-title">Location</h1>
 
-      <p class="app-description">
-        {{ home.location.address }} {{ home.location.city }}
-        {{ home.location.state }} {{ home.location.country }}
-      </p>
-
-      <div id="mapboxMap" class="app-map"></div>
+        <p>
+          {{ home.location.address }} {{ home.location.city }}
+          {{ home.location.state }} {{ home.location.country }}
+        </p>
+      </div>
     </div>
-  </div>
+    <div id="mapboxMap" class="h-[50vh] lg:h-[75vh]"></div>
+  </section>
 </template>
 
 <script>

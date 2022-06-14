@@ -64,14 +64,6 @@ export default {
 
 <style scoped>
 .link {
-  color: blue;
-  background-color: white;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.link:focus {
-  border: none;
-  outline: none;
+  @apply cursor-pointer text-primary-200 hover:text-primary-300;
 }
 </style>

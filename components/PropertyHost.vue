@@ -1,25 +1,25 @@
 <template>
-  <div class="app-background-gray">
-    <div class="app-wrapper app-padded-vertical">
-      <div class="app-host-header">
+  <section class="container rounded-lg app-section bg-primary-100">
+    <h1 class="mb-4 text-center app-title">Meet the Host!</h1>
+
+    <div>
+      <div class="flex items-center gap-4">
         <div>
-          <img :src="user.image" alt="" />
+          <img class="rounded-full" :src="user.image" :alt="user.name" />
         </div>
 
         <div>
-          <div class="app-host-name">{{ user.name }}</div>
-          <div class="app-host-date">
+          <p class="text-lg font-medium text-primary-400">{{ user.name }}</p>
+          <p class="font-medium text-primary-300">
             Joined in {{ formatDate(user.joined) }}
-          </div>
-
-          <div class="app-flex">
-            <div class="app-host-reviews">{{ user.reviewCount }} reviews</div>
-          </div>
+          </p>
+          <p>{{ user.reviewCount }} reviews</p>
         </div>
       </div>
-      <div class="app-host-description">{{ user.description }}</div>
+
+      <div class="mt-4 text-gray-600">{{ user.description }}</div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -35,3 +35,5 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped></style>

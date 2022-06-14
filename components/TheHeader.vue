@@ -1,5 +1,7 @@
 <template>
-  <nav class="fixed w-full py-2.5 px-2 sm:px-4 bg-white md:static">
+  <header
+    class="fixed w-full py-2.5 px-2 sm:px-4 bg-white lg:static shadow lg:shadow-none"
+  >
     <div class="flex items-center gap-6">
       <!-- Header logo -->
       <div>
@@ -9,7 +11,7 @@
       </div>
 
       <!-- Navbar -->
-      <div class="flex items-center w-full gap-2">
+      <nav class="flex items-center w-full gap-2">
         <div class="w-full">
           <ul class="flex gap-2 lg:items-center">
             <li class="hidden lg:block">
@@ -42,7 +44,7 @@
             </svg>
           </button>
         </div>
-      </div>
+      </nav>
 
       <!-- Dark Background Transition -->
       <transition
@@ -95,7 +97,7 @@
         </div>
       </aside>
     </div>
-  </nav>
+  </header>
 </template>
 
 <script>

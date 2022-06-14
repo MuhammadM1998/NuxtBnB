@@ -1,7 +1,5 @@
 module.exports = {
   theme: {
-    content: ["./node_modules/flowbite/**/*.js"],
-
     container: {
       center: true,
       padding: {
@@ -17,21 +15,11 @@ module.exports = {
       colors: {
         primary: {
           100: "#F6F8FB",
-          200: "#367cff",
+          200: "#367CFF",
+          300: "#88A2D2",
           400: "#3E5786",
-          600: "#1e394f",
+          600: "#1E394F",
         },
-
-        lynch: "#71809d",
-        zumthor: "#E3ECFF",
-        "dusty-gray": "#979797",
-        trout: "#494e61",
-        mineshaft: "#212121",
-        "catskill-white": "#F6F8FB",
-        "east-bay": "#3E5786",
-        "dodger-blue": "#367cff",
-        "polo-blue": "#88a2d2",
-        "link-water": "#CED5F1",
       },
 
       screens: {
@@ -49,8 +37,13 @@ module.exports = {
       fontFamily: {
         cereal: ["Cereal", "sans-serif"],
       },
+
+      gridTemplateRows: {
+        "gallery-mobile": "repeat(3, minmax(0, 140px))",
+        "gallery-desktop": "repeat(2, minmax(0, 280px))",
+      },
     },
   },
 
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };

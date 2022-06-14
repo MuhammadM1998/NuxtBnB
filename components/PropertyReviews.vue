@@ -1,28 +1,37 @@
 <template>
-  <div class="app-padded-vertical">
-    <div class="app-wrapper">
-      <div class="app-testimonials">
+  <section class="app-section">
+    <div class="container">
+      <h1 class="mb-4 app-title">Clients Reviews</h1>
+
+      <div class="property-reviews">
         <div v-for="(review, index) in reviews" :key="index">
-          <div class="app-testimonial-header">
+          <div class="flex items-center gap-4">
             <div>
-              <img :src="review.reviewer.image" alt="Reviewer Image" />
+              <img
+                class="rounded-full"
+                :src="review.reviewer.image"
+                :alt="review.reviewer.name"
+              />
             </div>
 
             <div>
-              <p class="app-testimonial-name">{{ review.reviewer.name }}</p>
-
-              <p class="app-testimonial-date">
+              <p class="text-lg font-medium text-primary-400">
+                {{ review.reviewer.name }}
+              </p>
+              <p class="font-medium text-primary-300">
                 {{ formatDate(review.date) }}
               </p>
             </div>
           </div>
-          <div class="app-testimonial-body">
-            <ShortText :text="review.comment" :target="150" /> <br />
+
+          <div class="mt-4 text-gray-600">
+            <SVGQuote class="inline-block relative -top-0.5 fill-primary-200" />
+            <ShortText :text="review.comment" :target="150" />
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -38,3 +47,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.property-reviews {
+  @apply grid gap-6 grid-cols-1 lg:grid-cols-2;
+}
+</style>
