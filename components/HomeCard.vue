@@ -7,6 +7,7 @@
           width="360px"
           height="175"
           provider="cloudinary"
+          class="object-cover object-center"
         />
       </div>
 
@@ -61,10 +62,6 @@ export default {
 </script>
 
 <style lang="scss">
-.user-homes-cards {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
-}
-
 .home-card {
   @apply rounded-lg  my-2 shadow-lg overflow-hidden bg-white flex flex-col;
 

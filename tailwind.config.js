@@ -38,6 +38,16 @@ module.exports = {
         cereal: ["Cereal", "sans-serif"],
       },
 
+      backgroundImage: {
+        beach: "url('~/assets/images/photos/beach.jpg')",
+        paris: "url('~/assets/images/photos/paris.jpg')",
+        "new-york": "url('~/assets/images/photos/new-york.jpg')",
+        london: "url('~/assets/images/photos/london.jpg')",
+        dubai: "url('~/assets/images/photos/dubai.jpg')",
+        "san-francisco": "url('~/assets/images/photos/san-francisco.jpg')",
+        cancun: "url('~/assets/images/photos/cancun.jpg')",
+      },
+
       gridTemplateRows: {
         "gallery-mobile": "repeat(3, minmax(0, 140px))",
         "gallery-desktop": "repeat(2, minmax(0, 280px))",
