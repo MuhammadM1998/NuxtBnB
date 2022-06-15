@@ -1,6 +1,6 @@
 <template>
   <section class="bg-primary-100 app-section">
-    <div class="container">
+    <div class="container flex flex-col gap-4">
       <h1 class="app-title">Add a New Home</h1>
 
       <form class="form" @submit.prevent="onSubmit">
@@ -143,11 +143,6 @@
               containerID="home-location"
               @resultFound="setAddressInfo"
             />
-
-            <!-- <div
-                id="mapbox-geocoder-home-location"
-                @resultFound="setAddressInfo"
-              ></div> -->
           </div>
 
           <!-- Country -->

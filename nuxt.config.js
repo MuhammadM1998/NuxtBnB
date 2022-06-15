@@ -18,11 +18,7 @@ module.exports = {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   components: true,
-  css: ["~/assets/styles/main.scss"],
   router: { prefetchLinks: false },
-  devServerHandlers: [],
-  publicRuntimeConfig: {},
-  privateRuntimeConfig: {},
   build: { extractCSS: true, loaders: { limit: 0 } },
   buildModules: ["@nuxtjs/tailwindcss"],
 
@@ -79,6 +75,8 @@ module.exports = {
       secretKey: process.env.STRIPE_SECRET_KEY,
     },
   },
+
+  tailwindcss: { cssPath: "~/assets/styles/main.scss" },
 
   firebase: {
     config: {

@@ -1,25 +1,27 @@
 <template>
   <section>
     <div class="flex flex-col lg:flex-row">
-      <div class="container app-section lg:basis-full bg-primary-100">
-        <h2 class="app-title">Stays in {{ label }}</h2>
+      <section class="app-section lg:basis-full bg-primary-100">
+        <div class="container flex flex-col gap-4">
+          <h2 class="app-title">Stays in {{ label }}</h2>
 
-        <p class="mt-4 text-gray-600" v-if="homes.length === 0">
-          There's no available homes in this area. Try a different location
-        </p>
+          <p class="mt-4 text-gray-600" v-if="homes.length === 0">
+            There's no available homes in this area. Try a different location
+          </p>
 
-        <HomeCard
-          v-for="home in homes"
-          :key="home.objectID"
-          :home="home"
-          :isRow="true"
-        ></HomeCard>
-      </div>
+          <HomeCard
+            v-for="home in homes"
+            :key="home.objectID"
+            :home="home"
+            :isRow="true"
+          ></HomeCard>
+        </div>
+      </section>
 
-      <div
+      <section
         id="mapbox-search-map"
         class="h-[50vh] lg:basis-full lg:h-screen"
-      ></div>
+      ></section>
     </div>
   </section>
 </template>

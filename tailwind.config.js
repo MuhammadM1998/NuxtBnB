@@ -39,13 +39,14 @@ module.exports = {
       },
 
       backgroundImage: {
-        beach: "url('~/assets/images/photos/beach.jpg')",
-        paris: "url('~/assets/images/photos/paris.jpg')",
-        "new-york": "url('~/assets/images/photos/new-york.jpg')",
-        london: "url('~/assets/images/photos/london.jpg')",
-        dubai: "url('~/assets/images/photos/dubai.jpg')",
-        "san-francisco": "url('~/assets/images/photos/san-francisco.jpg')",
-        cancun: "url('~/assets/images/photos/cancun.jpg')",
+        beach: "url('~/assets/images/intro-beach.jpg')",
+        paris: "url('~/assets/images/cities-premium/paris.jpg')",
+        "new-york": "url('~/assets/images/cities-premium/new-york.jpg')",
+        london: "url('~/assets/images/cities-premium/london.jpg')",
+        dubai: "url('~/assets/images/cities-premium/dubai.jpg')",
+        "san-francisco":
+          "url('~/assets/images/cities-featured/san-francisco.jpg')",
+        cancun: "url('~/assets/images/cities-featured/cancun.jpg')",
       },
 
       gridTemplateRows: {

@@ -1,6 +1,10 @@
 <template>
-  <NuxtLink :to="`/home/${home.objectID}`">
-    <div class="home-card" :class="{ 'home-card--row': isRow }">
+  <div class="flex flex-col overflow-hidden bg-white rounded-lg shadow-lg">
+    <NuxtLink
+      :to="`/home/${home.objectID}`"
+      class="home-card"
+      :class="{ 'home-card--row': isRow }"
+    >
       <div class="home-image">
         <NuxtImg
           :src="home.images[0]"
@@ -42,13 +46,17 @@
         </div>
 
         <div class="flex items-center justify-between"></div>
-
-        <div class="home-delete" v-if="isDeleteVisible">
-          <button @click="$emit('deletesHome')">Delete House</button>
-        </div>
       </div>
-    </div>
-  </NuxtLink>
+    </NuxtLink>
+
+    <button
+      class="home-delete"
+      v-if="isDeleteVisible"
+      @click="$emit('deletesHome')"
+    >
+      Delete House
+    </button>
+  </div>
 </template>
 
 <script>
@@ -63,10 +71,14 @@ export default {
 
 <style lang="scss">
 .home-card {
-  @apply rounded-lg  my-2 shadow-lg overflow-hidden bg-white flex flex-col;
+  @apply flex flex-col;
 
   &--row {
     @apply flex-row;
+
+    > div {
+      @apply basis-full;
+    }
   }
 }
 
@@ -75,7 +87,7 @@ export default {
 }
 
 .home-info {
-  @apply py-4 px-6 flex flex-col gap-2 font-medium;
+  @apply py-2 px-6 flex flex-col gap-2 font-medium;
 }
 
 .home-title {
@@ -83,11 +95,7 @@ export default {
 }
 
 .home-delete {
-  @apply flex justify-center mt-2;
-
-  button {
-    @apply text-red-600 transition-colors  hover:text-red-700;
-  }
+  @apply font-medium flex justify-center py-1 border-t-2 border-red-600 text-red-600 transition-colors  hover:bg-red-600 hover:text-white;
 }
 
 .svg {

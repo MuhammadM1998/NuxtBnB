@@ -13,7 +13,7 @@
           >
             <img
               class="object-cover object-center w-full rounded-t-lg max-h-72"
-              src="~/assets/images/photos/homes.jpg"
+              src="~/assets/images/admin/homes.jpg"
               alt="Your Homes"
             />
             <div class="p-5">
@@ -38,7 +38,7 @@
           >
             <img
               class="object-cover object-center w-full rounded-t-lg max-h-72"
-              src="~/assets/images/photos/add-home.jpg"
+              src="~/assets/images/admin/add-home.jpg"
               alt="Your Homes"
             />
             <div class="p-5">

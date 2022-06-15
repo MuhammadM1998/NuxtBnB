@@ -4,7 +4,7 @@
       <!-- Header logo -->
       <div>
         <NuxtLink to="/">
-          <img class="-mt-2 h-9" src="~/assets/images/logo.svg" alt="NuxtBnB" />
+          <SVGNuxtBnBLogo class="-mt-2 h-9" />
         </NuxtLink>
       </div>
 
@@ -89,7 +89,7 @@
         </div>
 
         <div class="flex flex-col justify-center h-full gap-8 p-4">
-          <img src="~/assets/images/logo.svg" alt="NuxtBnB" />
+          <SVGNuxtBnBLogo class="-mt-2 h-9" />
 
           <TheSearch containerID="drawer-search" @searchBtnClicked="drawer" />
         </div>

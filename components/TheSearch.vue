@@ -97,7 +97,7 @@
     </client-only>
 
     <button class="app-button search-button" @click="search">
-      <img src="~/assets/images/icons/search.svg" alt="Search" />
+      <SVGSearch />
       <p>Search</p>
     </button>
   </div>
@@ -189,7 +189,7 @@ div[id^="mapbox-geocoder"] {
 }
 
 .datepicker {
-  background-image: url("~assets/images/icons/calendar.svg");
+  background-image: url("~assets/images/search/calendar.svg");
   background-position: center right 0.625rem;
   @apply bg-no-repeat pr-0 lg:w-40;
 }

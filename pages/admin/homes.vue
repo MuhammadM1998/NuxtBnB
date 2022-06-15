@@ -1,13 +1,14 @@
 <template>
   <section class="bg-primary-100 app-section">
-    <div class="container">
+    <div class="container flex flex-col gap-4">
       <h1 class="app-title">Your Homes</h1>
 
-      <div class="user-homes-cards">
+      <div class="user-homes">
         <HomeCard
           v-for="home in homesList"
           :key="home.objectID"
           :home="home"
+          isDeleteVisible="true"
           @deletesHome="deleteHome(home.objectID)"
         />
       </div>
@@ -68,3 +69,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.user-homes {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+</style>
