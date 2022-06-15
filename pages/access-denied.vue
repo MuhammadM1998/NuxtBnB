@@ -1,5 +1,19 @@
 <template>
-  <div>No Access !</div>
+  <section class="app-section">
+    <div class="container flex flex-col justify-center gap-4 text-center">
+      <SVGAccessDenied class="max-h-[55vh]" />
+
+      <h1 class="app-title">
+        Sorry, you can't access this page. Most likely you're not signed in yet.
+      </h1>
+
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-2 mx-auto text-white app-button w-fit"
+        ><SVGHouse class="fill-white" />Go Back Home</NuxtLink
+      >
+    </div>
+  </section>
 </template>
 
 <script>
