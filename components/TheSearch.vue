@@ -4,7 +4,7 @@
       <template #placeholder>
         <div class="flex flex-col gap-2 lg:flex-row lg:items-center">
           <!-- Search Box Placeholder -->
-          <div class="" id="mapbox-geocoder-placeholder">
+          <div id="mapbox-geocoder-placeholder">
             <div class="mapboxgl-ctrl-geocoder mapboxgl-ctrl">
               <svg
                 class="mapboxgl-ctrl-geocoder--icon mapboxgl-ctrl-geocoder--icon-search"
@@ -71,7 +71,7 @@
         </div>
       </template>
 
-      <div :id="geocoderID" @resultFound="resultFound"></div>
+      <MapboxGeocoder :geocoderID="ID" @resultFound="setLocationInfo" />
 
       <DatePicker
         class="flex flex-col gap-2 lg:flex-row lg:items-center"
@@ -105,13 +105,7 @@
 
 <script>
 export default {
-  props: { containerID: { type: String, required: true } },
-
-  computed: {
-    geocoderID() {
-      return `mapbox-geocoder-${this.containerID}`;
-    },
-  },
+  props: { ID: { type: String, required: false, default: "nav-search" } },
 
   data() {
     return {
@@ -138,7 +132,7 @@ export default {
       });
     },
 
-    resultFound(event) {
+    setLocationInfo(event) {
       const place = event.detail;
       const placeName = place.place_name;
       const placeCoords = place.geometry.coordinates;
@@ -147,47 +141,11 @@ export default {
       this.location.lat = placeCoords[1];
       this.location.label = placeName;
     },
-
-    initSearchBox(count = 10) {
-      this.$nextTick(() => {
-        if (document.getElementById(this.geocoderID)) {
-          this.$mapboxMaps.createGeocoder(this.geocoderID);
-        } else if (count > 0) {
-          this.initSearchBox(count - 1);
-        }
-      });
-    },
-  },
-
-  mounted() {
-    this.initSearchBox();
   },
 };
 </script>
 
 <style lang="scss">
-div[id^="mapbox-geocoder"] {
-  @apply border-2 border-primary-300 border-opacity-80 rounded-lg text-lg p-2 pr-0;
-
-  &:focus-within {
-    outline: auto;
-  }
-
-  .mapboxgl-ctrl-geocoder {
-    @apply shadow-none min-w-0 sm:w-full;
-
-    &--input {
-      @apply p-0 pl-10 font-cereal font-medium;
-
-      &:focus {
-        border: none;
-        outline: none;
-        box-shadow: none;
-      }
-    }
-  }
-}
-
 .datepicker {
   background-image: url("~assets/images/search/calendar.svg");
   background-position: center right 0.625rem;

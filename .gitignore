@@ -26,3 +26,6 @@ sw.*
 
 # macOS
 .DS_Store
+
+#folder icon
+desktop.ini

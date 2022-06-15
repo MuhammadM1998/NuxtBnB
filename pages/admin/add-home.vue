@@ -3,7 +3,7 @@
     <div class="container flex flex-col gap-4">
       <h1 class="app-title">Add a New Home</h1>
 
-      <form class="form" @submit.prevent="onSubmit">
+      <form ref="form" class="form" @submit.prevent="onSubmit">
         <!-- Home Title -->
         <div class="flex flex-col gap-2">
           <p class="form-title">Home Title</p>
@@ -30,12 +30,6 @@
         <div class="flex flex-col gap-2">
           <p class="form-title">Description</p>
           <input required type="text" v-model="home.description" />
-        </div>
-
-        <!-- Note -->
-        <div class="flex flex-col gap-2">
-          <p class="form-title">Notes</p>
-          <input required type="text" v-model="home.note" />
         </div>
 
         <!-- Features -->
@@ -140,7 +134,7 @@
             >
 
             <MapboxGeocoder
-              containerID="home-location"
+              geocoderID="home-location"
               @resultFound="setAddressInfo"
             />
           </div>
@@ -177,18 +171,6 @@
               type="text"
               name="state"
               v-model="home.location.state"
-              class="md:max-w-xs"
-            />
-          </div>
-
-          <!-- Postal Code -->
-          <div class="flex flex-col gap-2">
-            <label for="postal-code">Postal Code</label>
-            <input
-              required
-              type="text"
-              name="postal-code"
-              v-model="home.location.postalCode"
               class="md:max-w-xs"
             />
           </div>
@@ -297,7 +279,6 @@ export default {
       home: {
         title: "",
         description: "",
-        note: "",
         pricePerNight: "",
         guests: "",
         bedrooms: "",
@@ -308,12 +289,11 @@ export default {
           address: "",
           city: "",
           state: "",
-          postalCode: "",
           country: "",
         },
         _geoloc: {
-          lat: 26.1,
-          lng: 26.1,
+          lat: "",
+          lng: "",
         },
         images: [],
         availabilityRanges: [
@@ -335,18 +315,30 @@ export default {
           body: JSON.stringify(this.home),
         })
       );
+      this.$refs.form.reset();
     },
 
     setAddressInfo(e) {
       const home = e.detail;
+      const homeGeometry = { country: "", city: "" };
+
+      home.context.forEach((item) => {
+        if (item.id.indexOf("country") !== -1) {
+          homeGeometry.country = item.text;
+          return;
+        }
+        if (item.id.indexOf("place") !== -1) {
+          homeGeometry.city = item.text;
+          return;
+        }
+      });
 
       this.home.location.address = home.place_name;
-      this.home.location.city = home.text;
-      this.home.location.state = home.context[0].text;
-      this.home.location.country = home.context[1].text;
+      this.home.location.country = homeGeometry.country;
+      this.home.location.city = homeGeometry.city;
+      this.home.location.state = home.text;
       this.home._geoloc.lng = home.geometry.coordinates[0];
       this.home._geoloc.lat = home.geometry.coordinates[1];
-      console.log(this.home._geoloc.lng, this.home._geoloc.lat);
     },
 
     imageUpdated(imageUrl, index) {
@@ -362,6 +354,16 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+#mapbox-geocoder-home-location {
+  @apply border-none p-0 outline-none;
+
+  .mapboxgl-ctrl-geocoder:focus-within {
+    outline: auto;
+  }
+}
+</style>
 
 <style scoped lang="scss">
 .form {

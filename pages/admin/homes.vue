@@ -8,7 +8,7 @@
           v-for="home in homesList"
           :key="home.objectID"
           :home="home"
-          isDeleteVisible="true"
+          :isDeleteVisible="true"
           @deletesHome="deleteHome(home.objectID)"
         />
       </div>

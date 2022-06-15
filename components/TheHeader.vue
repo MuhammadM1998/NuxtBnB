@@ -13,7 +13,7 @@
         <div class="w-full">
           <ul class="flex gap-2 lg:items-center">
             <li class="hidden lg:block">
-              <TheSearch containerID="nav-search" />
+              <TheSearch />
             </li>
 
             <li class="ml-auto">
@@ -91,7 +91,7 @@
         <div class="flex flex-col justify-center h-full gap-8 p-4">
           <SVGNuxtBnBLogo class="-mt-2 h-9" />
 
-          <TheSearch containerID="drawer-search" @searchBtnClicked="drawer" />
+          <TheSearch ID="drawer-search" @searchBtnClicked="drawer" />
         </div>
       </aside>
     </div>

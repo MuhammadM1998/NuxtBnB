@@ -50,7 +50,7 @@
     </NuxtLink>
 
     <button
-      class="home-delete"
+      class="mt-auto home-delete"
       v-if="isDeleteVisible"
       @click="$emit('deletesHome')"
     >

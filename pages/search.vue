@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col lg:flex-row">
+    <div class="wrapper">
       <section class="app-section lg:basis-full bg-primary-100">
         <div class="container flex flex-col gap-4">
           <h2 class="app-title">Stays in {{ label }}</h2>
@@ -18,10 +18,9 @@
         </div>
       </section>
 
-      <section
-        id="mapbox-search-map"
-        class="h-[50vh] lg:basis-full lg:h-screen"
-      ></section>
+      <section class="lg:basis-full">
+        <div id="mapbox-search-map" class="h-[50vh] lg:h-full"></div>
+      </section>
     </div>
   </section>
 </template>
@@ -123,6 +122,10 @@ export default {
 </script>
 
 <style>
+.wrapper {
+  @apply flex flex-col lg:flex-row;
+  min-height: calc(100vh - 4.75rem);
+}
 .marker {
   background-color: #fff;
   font-weight: bold;
