@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="`/home/${home.objectID}`">
-    <div class="home-card">
+    <div class="home-card" :class="{ 'home-card--row': isRow }">
       <div class="home-image">
         <NuxtImg
           :src="home.images[0]"
@@ -13,10 +13,22 @@
       <div class="home-info">
         <h4 class="home-title">{{ home.title }}</h4>
 
+        <!-- Home Review Count -->
+        <div class="flex items-center gap-2">
+          <SVGStar class="svg" />
+          <p>{{ home.reviewCount }}</p>
+        </div>
+
         <!-- Home Address -->
         <div class="flex items-center gap-2">
           <SVGMarker class="svg" />
           <p>{{ home.location.address }}</p>
+        </div>
+
+        <!-- Home Guests -->
+        <div class="flex items-center gap-2">
+          <SVGGuests class="svg" />
+          <p>{{ home.guests }} guests</p>
         </div>
 
         <!-- Home Price Per Night -->
@@ -28,21 +40,9 @@
           </p>
         </div>
 
-        <div class="flex items-center justify-between">
-          <!-- Home Review Count -->
-          <div class="flex items-center gap-2">
-            <SVGStar class="svg" />
-            <p>{{ home.reviewCount }}</p>
-          </div>
+        <div class="flex items-center justify-between"></div>
 
-          <!-- Home Guests -->
-          <div class="flex items-center gap-2">
-            <SVGGuests class="svg" />
-            <p>{{ home.guests }} guests</p>
-          </div>
-        </div>
-
-        <div class="home-delete">
+        <div class="home-delete" v-if="isDeleteVisible">
           <button @click="$emit('deletesHome')">Delete House</button>
         </div>
       </div>
@@ -52,7 +52,11 @@
 
 <script>
 export default {
-  props: { home: { type: Object, required: true } },
+  props: {
+    home: { type: Object, required: true },
+    isDeleteVisible: { type: Boolean, required: false, default: false },
+    isRow: { type: Boolean, required: false, default: false },
+  },
 };
 </script>
 
@@ -62,15 +66,19 @@ export default {
 }
 
 .home-card {
-  @apply rounded-lg  my-2 shadow-lg overflow-hidden bg-white;
+  @apply rounded-lg  my-2 shadow-lg overflow-hidden bg-white flex flex-col;
+
+  &--row {
+    @apply flex-row;
+  }
 }
 
 .home-image img {
-  @apply w-full;
+  @apply w-full h-full object-cover object-center;
 }
 
 .home-info {
-  @apply py-4 px-6 flex flex-col gap-1 font-medium;
+  @apply py-4 px-6 flex flex-col gap-2 font-medium;
 }
 
 .home-title {

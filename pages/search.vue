@@ -1,24 +1,19 @@
 <template>
   <section>
     <div class="flex flex-col lg:flex-row">
-      <div class="container app-section lg:basis-full">
+      <div class="container app-section lg:basis-full bg-primary-100">
         <h2 class="app-title">Stays in {{ label }}</h2>
 
         <p class="mt-4 text-gray-600" v-if="homes.length === 0">
           There's no available homes in this area. Try a different location
         </p>
 
-        <nuxt-link
+        <HomeCard
           v-for="home in homes"
           :key="home.objectID"
-          :to="`/home/${home.objectID}`"
-        >
-          <HomeRow
-            :home="home"
-            @mouseover.native="highlightMarker(home.objectID, true)"
-            @mouseout.native="highlightMarker(home.objectID, false)"
-          />
-        </nuxt-link>
+          :home="home"
+          :isRow="true"
+        ></HomeCard>
       </div>
 
       <div

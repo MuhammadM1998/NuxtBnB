@@ -6,7 +6,7 @@
     <PropertyMap :home="home" />
     <PropertyReviews :reviews="reviews" />
     <PropertyHost :user="user" />
-    <!-- <script type="application/ld+json" v-html="getSchema"></script> -->
+    <script type="application/ld+json" v-html="getSchema"></script>
   </section>
 </template>
 

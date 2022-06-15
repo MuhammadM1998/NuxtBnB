@@ -1,11 +1,15 @@
 <template>
-  <div class="user-homes-cards">
-    <HomeCard
-      v-for="home in homes"
-      :key="home.objectID"
-      :home="home"
-    ></HomeCard>
-  </div>
+  <section class="app-section">
+    <div class="container">
+      <div class="user-homes-cards">
+        <HomeCard
+          v-for="home in homes"
+          :key="home.objectID"
+          :home="home"
+        ></HomeCard>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>

@@ -106,6 +106,11 @@ export default function (context, inject) {
 
     geocoder.addTo(geocoderContainer);
 
+    const geocoderRendered = new CustomEvent("geocoderRendered", {
+      detail: true,
+    });
+    geocoderContainer.dispatchEvent(geocoderRendered);
+
     // Emit an Event when a result is found
     geocoder.on("result", function (data) {
       const result = data.result;
