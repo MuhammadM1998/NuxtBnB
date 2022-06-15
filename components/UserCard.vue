@@ -1,12 +1,18 @@
 <template>
   <div>
-    <button
-      v-show="!isLoading && !isUserLoggedIn"
-      class="grid p-2 rounded-full place-content-center"
-      @click="login"
-    >
-      <SVGGoogle class="w-8 h-8" />
-    </button>
+    <client-only>
+      <template #placeholder>
+        <SVGLoader class="w-12 h-12" />
+      </template>
+
+      <button
+        v-show="!isLoading && !isUserLoggedIn"
+        class="grid p-2 rounded-full place-content-center"
+        @click="login"
+      >
+        <SVGGoogle class="w-8 h-8" />
+      </button>
+    </client-only>
 
     <SVGLoader class="w-12 h-12" v-show="isLoading" />
 
@@ -134,7 +140,7 @@ export default {
     },
 
     async logout() {
-      await this.$firebaseAuth.signOut();
+      await this.$fire.auth.signOut();
     },
 
     handleDropdown(event) {
@@ -146,7 +152,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     if (process.client) {
       window.addEventListener("click", this.handleDropdown);
     }

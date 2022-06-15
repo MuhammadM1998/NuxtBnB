@@ -94,8 +94,8 @@ export default function (context, inject) {
   }
 
   function createGeocoder(containerID) {
-    // Only add the search box if there's none (avoid duplications of boxes)
     const geocoderContainer = document.getElementById(containerID);
+    // Only add the search box if there's none (avoid duplications of boxes)
     if (geocoderContainer.querySelector(".mapboxgl-ctrl-geocoder")) return;
 
     const geocoder = new MapboxGeocoder({
@@ -105,11 +105,6 @@ export default function (context, inject) {
     });
 
     geocoder.addTo(geocoderContainer);
-
-    const geocoderRendered = new CustomEvent("geocoderRendered", {
-      detail: true,
-    });
-    geocoderContainer.dispatchEvent(geocoderRendered);
 
     // Emit an Event when a result is found
     geocoder.on("result", function (data) {
