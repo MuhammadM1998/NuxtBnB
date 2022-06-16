@@ -12,6 +12,7 @@
             type="text"
             v-model="home.title"
             class="md:max-w-xs"
+            aria-label="Home Title"
           />
         </div>
 
@@ -29,7 +30,12 @@
         <!-- Description -->
         <div class="flex flex-col gap-2">
           <p class="form-title">Description</p>
-          <input required type="text" v-model="home.description" />
+          <input
+            required
+            type="text"
+            v-model="home.description"
+            aria-label="Home Description"
+          />
         </div>
 
         <!-- Features -->
@@ -41,30 +47,35 @@
             type="text"
             v-model="home.features[0]"
             class="md:max-w-xs"
+            aria-label="Home Feature"
           />
           <input
             required
             type="text"
             v-model="home.features[1]"
             class="md:max-w-xs"
+            aria-label="Home Feature"
           />
           <input
             required
             type="text"
             v-model="home.features[2]"
             class="md:max-w-xs"
+            aria-label="Home Feature"
           />
           <input
             required
             type="text"
             v-model="home.features[3]"
             class="md:max-w-xs"
+            aria-label="Home Feature"
           />
           <input
             required
             type="text"
             v-model="home.features[4]"
             class="md:max-w-xs"
+            aria-label="Home Feature"
           />
         </div>
 
@@ -77,6 +88,7 @@
             type="number"
             min="0"
             v-model="home.pricePerNight"
+            aria-label="Price Per Night"
           />
         </div>
 
@@ -92,6 +104,7 @@
               v-model="home.guests"
               placeholder="Guests"
               class="md:max-w-xs"
+              aria-label="House Specs"
             />
 
             <input
@@ -101,6 +114,7 @@
               v-model="home.bedrooms"
               placeholder="Rooms"
               class="md:max-w-xs"
+              aria-label="House Specs"
             />
 
             <input
@@ -110,6 +124,7 @@
               v-model="home.beds"
               placeholder="Beds"
               class="md:max-w-xs"
+              aria-label="House Specs"
             />
 
             <input
@@ -119,6 +134,7 @@
               v-model="home.bathrooms"
               placeholder="Bathrooms"
               class="md:max-w-xs"
+              aria-label="House Specs"
             />
           </div>
         </div>
@@ -148,6 +164,7 @@
               name="country"
               v-model="home.location.country"
               class="md:max-w-xs"
+              aria-label="Country"
             />
           </div>
 
@@ -160,6 +177,7 @@
               name="city"
               v-model="home.location.city"
               class="md:max-w-xs"
+              aria-label="City"
             />
           </div>
 
@@ -172,6 +190,7 @@
               name="state"
               v-model="home.location.state"
               class="md:max-w-xs"
+              aria-label="State"
             />
           </div>
         </div>
@@ -198,6 +217,7 @@
                   :value="inputValue.start"
                   v-on="inputEvents.start"
                   class="max-w-[45%] md:max-w-xs"
+                  aria-label="Check in Start Date"
                 />
 
                 <p>to</p>
@@ -207,6 +227,7 @@
                   :value="inputValue.end"
                   v-on="inputEvents.end"
                   class="max-w-[45%] md:max-w-xs"
+                  aria-label="Check in End Date"
                 />
               </div>
             </div>
@@ -230,6 +251,7 @@
                   :value="inputValue.start"
                   v-on="inputEvents.start"
                   class="max-w-[45%] md:max-w-xs"
+                  aria-label="Check in Start Date"
                 />
 
                 <p>to</p>
@@ -239,6 +261,7 @@
                   :value="inputValue.end"
                   v-on="inputEvents.end"
                   class="max-w-[45%] md:max-w-xs"
+                  aria-label="Check in End Date"
                 />
               </div>
             </div>
@@ -247,7 +270,7 @@
 
         <!-- Add Home to Database -->
         <div class="home-add">
-          <button type="submit">Add Home</button>
+          <button type="submit" aria-label="Sumbit Home">Add Home</button>
         </div>
       </form>
     </div>
@@ -382,7 +405,7 @@ export default {
     @apply flex justify-center mt-2;
 
     button {
-      @apply bg-primary-200   text-white py-2 px-6 rounded hover:scale-105 transition-all;
+      @apply bg-primary-250   text-white py-2 px-6 rounded hover:scale-105 transition-all;
     }
   }
 }

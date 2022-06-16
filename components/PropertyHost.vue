@@ -11,7 +11,7 @@
 
           <div>
             <p class="text-lg font-medium text-primary-400">{{ user.name }}</p>
-            <p class="font-medium text-primary-300">
+            <p class="font-medium text-primary-250">
               Joined in {{ formatDate(user.joined) }}
             </p>
             <p>{{ user.reviewCount }} reviews</p>

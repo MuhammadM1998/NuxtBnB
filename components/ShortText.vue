@@ -64,6 +64,6 @@ export default {
 
 <style scoped>
 .link {
-  @apply cursor-pointer text-primary-200 hover:text-primary-300;
+  @apply cursor-pointer text-primary-250 hover:text-primary-400;
 }
 </style>

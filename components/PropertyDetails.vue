@@ -32,7 +32,7 @@
               <SVGStar class="svg" />
               <p>
                 {{ home.reviewValue }}
-                <span class="text-primary-300">({{ home.reviewCount }})</span>
+                <span class="text-primary-400">({{ home.reviewCount }})</span>
               </p>
             </div>
           </div>
@@ -42,7 +42,7 @@
         <div class="property-request">
           <div class="text-5xl font-bold text-center text-primary-200">
             ${{ home.pricePerNight
-            }}<span class="text-primary-300"> / night</span>
+            }}<span class="text-primary-400"> / night</span>
           </div>
 
           <!-- Date Range -->
@@ -51,9 +51,9 @@
               <div
                 class="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-center"
               >
-                <input class="datepicker app-input" />
+                <input class="datepicker app-input" aria-label="Date Picker" />
                 <span class="font-medium text-center">to</span>
-                <input class="datepicker app-input" />
+                <input class="datepicker app-input" aria-label="Date Picker" />
               </div>
             </template>
 
@@ -68,12 +68,14 @@
                 <input
                   :value="inputValue.start"
                   v-on="inputEvents.start"
+                  aria-label="Date Picker"
                   class="datepicker app-input"
                 />
                 <span class="font-medium text-center">to</span>
                 <input
                   :value="inputValue.end"
                   v-on="inputEvents.end"
+                  aria-label="Date Picker"
                   class="datepicker app-input"
                 />
               </template>

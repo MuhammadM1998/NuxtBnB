@@ -6,6 +6,7 @@
       </template>
 
       <button
+        aria-label="Google Login"
         v-show="!isLoading && !isUserLoggedIn"
         class="grid p-2 rounded-full place-content-center"
         @click="login"
@@ -22,12 +23,13 @@
         ref="dropdownInfoBtn"
         id="dropdownInfoBtn"
         data-dropdown-toggle="dropdownInformation"
-        class="flex items-center max-w-[11rem] gap-2 px-2 py-1 text-sm font-medium bg-white shadow text-primary-200 hover:text-white app-button"
+        class="flex items-center max-w-[11rem] gap-2 px-2 py-1 text-sm font-medium bg-white shadow text-primary-250 hover:bg-primary-250 hover:text-white app-button"
         type="button"
         @click="isDropdownActive = !isDropdownActive"
       >
         <img
-          class="w-8 h-8 border-2 rounded-full border-dodger-blue"
+          class="w-8 h-8 border-2 rounded-full border-primary-200"
+          aria-label="User Image"
           :src="userImageURL"
         />
 

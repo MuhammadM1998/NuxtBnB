@@ -87,7 +87,7 @@ export default function (context, inject) {
 
         // Fitting the map view to the new bounds array with an acceptable padding
         map.fitBounds(boundsBox, {
-          padding: { top: 400, bottom: 400, left: 400, right: 400 },
+          padding: { top: 800, bottom: 800, left: 800, right: 800 },
         });
       }
     }

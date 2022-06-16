@@ -17,7 +17,7 @@
       </div>
 
       <div class="home-info">
-        <h4 class="home-title">{{ home.title }}</h4>
+        <h2 class="home-title">{{ home.title }}</h2>
 
         <!-- Home Review Count -->
         <div class="flex items-center gap-2">

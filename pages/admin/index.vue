@@ -17,11 +17,11 @@
               alt="Your Homes"
             />
             <div class="p-5">
-              <h5
+              <h2
                 class="mb-2 text-2xl font-bold tracking-tight text-primary-200"
               >
                 Your Homes
-              </h5>
+              </h2>
 
               <p class="mb-3 text-gray-600">
                 A list of your added homes enriched with details. Review all
@@ -42,11 +42,11 @@
               alt="Your Homes"
             />
             <div class="p-5">
-              <h5
+              <h2
                 class="mb-2 text-2xl font-bold tracking-tight text-primary-200"
               >
                 Add a New Home
-              </h5>
+              </h2>
 
               <p class="mb-3 text-gray-600">
                 Include your property to our database and make it available for

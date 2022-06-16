@@ -82,12 +82,14 @@
       >
         <template v-slot="{ inputValue, inputEvents }">
           <input
+            aria-label="Date Picker"
             :value="inputValue.start"
             v-on="inputEvents.start"
             class="datepicker app-input"
           />
           <span class="font-medium text-center">to</span>
           <input
+            aria-label="Date Picker"
             :value="inputValue.end"
             v-on="inputEvents.end"
             class="datepicker app-input"
@@ -96,7 +98,11 @@
       </DatePicker>
     </client-only>
 
-    <button class="app-button search-button" @click="search">
+    <button
+      aria-label="Search"
+      class="app-button search-button"
+      @click="search"
+    >
       <SVGSearch />
       <p>Search</p>
     </button>

@@ -5,8 +5,8 @@
     <div class="flex items-center gap-6">
       <!-- Header logo -->
       <div>
-        <NuxtLink to="/">
-          <SVGNuxtBnBLogo class="-mt-2 h-9" />
+        <NuxtLink aria-label="NuxtBnB Logo" to="/">
+          <SVGNuxtBnBLogo class="-mt-2 h-9 w-fit" />
         </NuxtLink>
       </div>
 
@@ -24,9 +24,9 @@
           </ul>
         </div>
 
-        <!-- Search Menu -->
+        <!-- Search Button [Small Screens Only] -->
         <div class="grid place-content-center lg:hidden">
-          <button @click="drawer">
+          <button @click="drawer" aria-label="Search">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -75,7 +75,7 @@
       >
         <!-- Close Button -->
         <div class="flex justify-end close">
-          <button @click="isOpen = false">
+          <button @click="isOpen = false" aria-label="Close Menu">
             <svg
               class="w-6 h-6"
               fill="none"

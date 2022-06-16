@@ -22,7 +22,7 @@
               <p class="text-lg font-medium text-primary-400">
                 {{ review.reviewer.name }}
               </p>
-              <p class="font-medium text-primary-300">
+              <p class="font-medium text-primary-250">
                 {{ formatDate(review.date) }}
               </p>
             </div>

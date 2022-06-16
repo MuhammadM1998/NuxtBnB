@@ -2,7 +2,6 @@
   <div class="flex">
     <input
       type="file"
-      id="file"
       accept="image/*"
       aria-label="Home Image Uploader"
       @change="uploadFile"
