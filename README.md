@@ -9,6 +9,25 @@ An Airbnb-like website. Built with Nuxt.js and using Algolia, Mapbox, Stripe, Fi
 - [Live Site](https://nuxtbnb-m98.herokuapp.com/)
 - [Source Repo](https://github.com/MuhammadM1998/NuxtBnB)
 
+### 🔨 Changelog
+
+This project is built during the Mastering Nuxt course. I used different tools and modified things due to several reasons.
+
+- Made the website responsive on all screens instead of desktop only.
+- Enabled searching without start & end date.
+- `Firebase Auth` instead of `Google Auth`.
+- `Mapbox GL JS` instead of `Google Maps`.
+- `Mapbox Geocoder` instead of `Google Places`.
+- `Heroku` instead of `Vercel`.
+
+### 💰 Test Payment with Stripe
+
+You can request your apartment from the site now, you can use this info for stripe checkout page.
+
+- `Card Number`: `4242 4242 4242 4242`
+- `CVC`: Enter any three numbers
+- `Expiry Date`: Enter any date in the future.
+
 ### ‍💻 Stack
 
 ![Nuxtjs](https://img.shields.io/badge/Nuxt-002E3B?style=for-the-badge&logo=nuxtdotjs&logoColor=#00DC82)
