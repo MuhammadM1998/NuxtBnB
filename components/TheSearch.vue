@@ -111,8 +111,8 @@ export default {
     return {
       location: { lng: 0, lat: 0, label: "" },
       range: {
-        start: new Date(),
-        end: new Date(),
+        start: "",
+        end: "",
       },
     };
   },
@@ -120,14 +120,28 @@ export default {
   methods: {
     search() {
       if (!this.location.label) return;
+      let startDate;
+      let endDate;
+
+      if (this.range && this.range.start instanceof Date) {
+        startDate = this.range.start.getTime() / 1000;
+      } else {
+        startDate = undefined;
+      }
+
+      if (this.range && this.range.end instanceof Date) {
+        endDate = this.range.end.getTime() / 1000;
+      } else {
+        endDate = undefined;
+      }
 
       this.$emit("searchBtnClicked");
       this.$router.push({
         name: "search",
         query: {
           ...this.location,
-          start: this.range.start.getTime() / 1000,
-          end: this.range.end.getTime() / 1000,
+          start: startDate,
+          end: endDate,
         },
       });
     },

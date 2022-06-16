@@ -14,6 +14,8 @@
             :key="home.objectID"
             :home="home"
             :isRow="true"
+            @mouseover.native="highlightMarker(home.objectID, true)"
+            @mouseout.native="highlightMarker(home.objectID, false)"
           ></HomeCard>
         </div>
       </section>

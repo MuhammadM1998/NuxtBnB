@@ -8,9 +8,10 @@
       <div class="home-image">
         <NuxtImg
           :src="home.images[0]"
+          provider="cloudinary"
+          alt="Whatever"
           width="360px"
           height="175"
-          provider="cloudinary"
           class="object-cover object-center"
         />
       </div>
