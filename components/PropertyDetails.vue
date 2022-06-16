@@ -11,13 +11,13 @@
           <div class="flex flex-col gap-2">
             <!-- Home Address -->
             <div class="flex items-center gap-2">
-              <SVGMarker class="svg" />
+              <SVGMarker class="w-6 h-6 svg" />
               <p>{{ home.location.address }}</p>
             </div>
 
             <!-- Home Specs -->
             <div class="flex items-center gap-2 text-center">
-              <SVGHouse class="fill-primary-400" />
+              <SVGHouse class="w-6 h-6 fill-primary-400" />
 
               <p>
                 {{ pluralize(home.guests, "Guest") }} &middot;
@@ -29,7 +29,7 @@
 
             <!-- Home Review Value & Count -->
             <div class="flex items-center gap-2">
-              <SVGStar class="svg" />
+              <SVGStar class="w-6 h-6 svg" />
               <p>
                 {{ home.reviewValue }}
                 <span class="text-primary-400">({{ home.reviewCount }})</span>
