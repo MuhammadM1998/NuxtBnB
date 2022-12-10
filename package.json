@@ -2,12 +2,14 @@
   "name": "nuxt-bnb",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=16.2.0 <18"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "heroku-postbuild": "yarn build"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^5.0.1",
