@@ -1,25 +1,25 @@
 module.exports = {
   head: {
-    titleTemplate: 'NuxtBnB - %s',
+    titleTemplate: "NuxtBnB - %s",
     htmlAttrs: {
-      lang: 'en',
+      lang: "en",
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: 'description',
-        name: 'description',
+        hid: "description",
+        name: "description",
         content:
-          'An Airbnb-like Website for renting houses to others. Built with Nuxt.js, Algolia, Mapbox, Firebase and more.',
+          "An Airbnb-like Website for renting houses to others. Built with Nuxt.js, Algolia, Mapbox, Firebase and more.",
       },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   loading: {
-    color: '#367CFF',
-    height: '4px',
+    color: "#367CFF",
+    height: "4px",
   },
   components: true,
   router: { prefetchLinks: false },
@@ -27,8 +27,8 @@ module.exports = {
   publicRuntimeConfig: {},
   privateRuntimeConfig: {},
   build: { extractCSS: true, loaders: { limit: 0 } },
-  buildModules: ['@nuxtjs/tailwindcss'],
-  tailwindcss: { cssPath: '~/assets/styles/main.scss' },
+  buildModules: ["@nuxtjs/tailwindcss"],
+  tailwindcss: { cssPath: "~/assets/styles/main.scss" },
 
   plugins: [
     `~/plugins/dataAPI`,
@@ -38,19 +38,19 @@ module.exports = {
   ],
 
   modules: [
-    '@nuxtjs/firebase',
-    '@nuxtjs/cloudinary',
-    '@nuxt/image',
-    '~/modules/auth',
-    '~/modules/algolia',
-    '~/modules/cloudinary',
-    '~/modules/stripe',
+    "@nuxtjs/firebase",
+    "@nuxtjs/cloudinary",
+    "@nuxt/image",
+    "~/modules/auth",
+    "~/modules/algolia",
+    "~/modules/cloudinary",
+    "~/modules/stripe",
   ],
 
   publicRuntimeConfig: {
     rootUrl:
-      process.env.NODE_ENV === 'production'
-        ? process.env.VERCEL_URL
+      process.env.NODE_ENV === "production"
+        ? process.env.BASE_URL
         : process.env.LOCAL_HOST_URL,
 
     auth: { cookieName: process.env.AUTH_COOKIE_NAME },
@@ -96,9 +96,9 @@ module.exports = {
 
     services: {
       auth: {
-        persistence: 'local',
+        persistence: "local",
         initialize: {
-          onAuthStateChangedAction: 'onAuthStateChanged',
+          onAuthStateChangedAction: "onAuthStateChanged",
           subscribeManually: false,
         },
         ssr: false,
@@ -114,5 +114,10 @@ module.exports = {
     cloudinary: {
       baseURL: process.env.CLOUDINARY_VERCEL_URL,
     },
+  },
+
+  server: {
+    host: "0.0.0.0",
+    port: process.env.PORT || 3000,
   },
 };
