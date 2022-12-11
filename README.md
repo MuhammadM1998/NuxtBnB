@@ -6,7 +6,7 @@ An Airbnb-like website. Built with Nuxt.js and using Algolia, Mapbox, Stripe, Fi
 
 ### 🔗 Links
 
-- [Live Site](https://nuxtbnb-m98.herokuapp.com/)
+- [Live Site](https://nuxtbnb.up.railway.app/)
 - [Source Repo](https://github.com/MuhammadM1998/NuxtBnB)
 
 ### 🔨 Changelog
@@ -18,7 +18,7 @@ This project is built during the Mastering Nuxt course. I used different tools a
 - `Firebase Auth` instead of `Google Auth`.
 - `Mapbox GL JS` instead of `Google Maps`.
 - `Mapbox Geocoder` instead of `Google Places`.
-- `Heroku` instead of `Vercel`.
+- `Railway` instead of `Vercel`.
 
 ### 💰 Test Payment with Stripe
 
@@ -37,7 +37,7 @@ You can request your apartment from the site now, you can use this info for stri
 ![Algolia](https://img.shields.io/badge/Algolia-5468FF?style=for-the-badge&logo=Algolia&logoColor=white)
 ![Mapbox](https://img.shields.io/badge/Mapbox-4285F4?style=for-the-badge&logo=Algolia&logoColor=white)
 ![Stripe](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=Stripe&logoColor=white)
-![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+![Railway](https://img.shields.io/static/v1?label=&message=Railway&color=0B0D0E&style=for-the-badge&logo=Railway)
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![VS Code](https://img.shields.io/badge/-VSCode-%23007ACC?style=for-the-badge&logo=visual-studio-code)
 ![Mobile-First Design](https://img.shields.io/static/v1?label=&message=Mobile-First-Design&color=gray&style=for-the-badge)
